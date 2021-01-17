@@ -60,11 +60,9 @@ function getChromePath() {
       width,
       height,
     })
-    await page.evaluate(() => {
-      return new Promise((resolve) => {
-        window.requestAnimationFrame(resolve)
-      })
-    })
+    await page.mainFrame().waitForFunction(
+      `window.innerWidth === ${ width } && window.innerHeight === ${ height }`
+    );
     await page.screenshot({
       fullPage,
       path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.png`,
