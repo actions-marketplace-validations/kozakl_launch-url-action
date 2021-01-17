@@ -40,7 +40,7 @@ function getChromePath() {
     const timestamp = new Date().getTime();
     const width = parseInt(core.getInput("width"));
     const height = parseInt(core.getInput("height"));
-    const waitForTimeout = parseInt(core.getInput("waitForTimeout"));
+    const waitFor = parseInt(core.getInput("waitFor"));
     const fullPage = core.getInput("fullPage") === "true";
     const screenshotName =
       core.getInput("screenshotName") !== "false"
@@ -55,7 +55,7 @@ function getChromePath() {
     await page.goto(url, {
       waitUntil: "networkidle2",
     });
-    await page.waitForTimeout(waitForTimeout);
+    await page.waitFor(waitFor);
     await page.screenshot({
       fullPage,
       path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.png`,

@@ -19,7 +19,7 @@ inputs:
     required: false
     description: "Browser viewport height"
     default: 1080
-  waitForTimeout:
+  waitFor:
     required: false
     description: "Wait for the given number of milliseconds"
     default: 3000
