@@ -35,3 +35,6 @@ inputs:
     required: false
     description: "The type of image to create"
     default: png
+  abortRequestsMatching:
+    required: false
+    description: "A comma-separated list of filters to apply to requests. Ex: youtube,woff"

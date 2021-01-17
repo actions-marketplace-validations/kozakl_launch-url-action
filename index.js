@@ -43,6 +43,7 @@ function getChromePath() {
     const waitFor = parseInt(core.getInput("waitFor"));
     const fullPage = core.getInput("fullPage") === "true";
     const extension = core.getInput("extension");
+    const abortRequestsMatching = core.getInput("abortRequestsMatching").split(",").filter(x => x !== "");
     const screenshotName =
       core.getInput("screenshotName") !== "false"
         ? core.getInput("screenshotName")
@@ -53,6 +54,13 @@ function getChromePath() {
       defaultViewport: { width, height },
     });
     const page = await browser.newPage();
+    await page.setRequestInterception(true);
+    page.on('request', (request) => {
+        const url = request.url();
+        const shouldAbort = abortRequestsMatching.some((urlPart) => url.includes(urlPart));
+        if (shouldAbort) request.abort();
+        else request.continue();
+    });
     await page.goto(url, {
       waitUntil: "networkidle2",
     });
