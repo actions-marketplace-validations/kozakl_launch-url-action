@@ -55,7 +55,6 @@ function getChromePath() {
     await page.goto(url, {
       waitUntil: "networkidle2",
     });
-    await page.waitFor(waitFor);
     await page.setViewport({
       width,
       height,
@@ -63,6 +62,7 @@ function getChromePath() {
     await page.mainFrame().waitForFunction(
       `window.innerWidth === ${ width } && window.innerHeight === ${ height }`
     );
+    await page.waitFor(waitFor);
     await page.screenshot({
       fullPage,
       path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.png`,
