@@ -42,6 +42,7 @@ function getChromePath() {
     const height = parseInt(core.getInput("height"));
     const waitFor = parseInt(core.getInput("waitFor"));
     const fullPage = core.getInput("fullPage") === "true";
+    const extension = core.getInput("extension");
     const screenshotName =
       core.getInput("screenshotName") !== "false"
         ? core.getInput("screenshotName")
@@ -65,7 +66,7 @@ function getChromePath() {
     await page.waitFor(waitFor);
     await page.screenshot({
       fullPage,
-      path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.png`,
+      path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.${extension}`,
     });
     await browser.close();
 

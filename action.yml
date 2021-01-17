@@ -31,3 +31,7 @@ inputs:
     required: false
     description: "The screenshot name if you do not want the default timestamp"
     default: false
+  extension:
+    required: false
+    description: "The type of image to create"
+    default: png
