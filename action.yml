@@ -19,6 +19,10 @@ inputs:
     required: false
     description: "Browser viewport height"
     default: 1080
+  waitForTimeout:
+    required: false
+    description: "Wait for the given number of milliseconds"
+    default: 3000
   fullPage:
     required: false
     description: "Controls whether screenshot taken includes entire page"
