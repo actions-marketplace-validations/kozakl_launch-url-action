@@ -43,6 +43,7 @@ function getChromePath() {
     const waitFor = parseInt(core.getInput("waitFor"));
     const fullPage = core.getInput("fullPage") === "true";
     const extension = core.getInput("extension");
+    const css = core.getInput("css");
     const abortRequestsMatching = core.getInput("abortRequestsMatching").split(",").filter(x => x !== "");
     const screenshotName =
       core.getInput("screenshotName") !== "false"
@@ -64,6 +65,7 @@ function getChromePath() {
     await page.goto(url, {
       waitUntil: "networkidle2",
     });
+    await page.addStyleTag({content: css})
     await page.setViewport({
       width,
       height,

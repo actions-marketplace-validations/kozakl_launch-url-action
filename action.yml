@@ -35,6 +35,10 @@ inputs:
     required: false
     description: "The type of image to create"
     default: png
+  css:
+    required: false
+    description: "Custom CSS to inject into the page"
+    default: ''
   abortRequestsMatching:
     required: false
     description: "A comma-separated list of filters to apply to requests. Ex: youtube,woff"
