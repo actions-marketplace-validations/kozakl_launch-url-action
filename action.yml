@@ -1,6 +1,6 @@
-name: "Puppeteer Screenshot Action"
-description: "Run puppeteer script and generate screenshot"
-author: "Benjamin Lannon <benjamin@lannonbr.com>"
+name: "Launch URL Action"
+description: ""
+author: "benjamin@lannonbr.com"
 branding:
   icon: 'camera'
   color: 'green'
