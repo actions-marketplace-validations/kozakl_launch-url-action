@@ -74,11 +74,11 @@ function getChromePath() {
       `window.innerWidth === ${ width } && window.innerHeight === ${ height }`
     );
     await page.waitFor(waitFor);
-    await page.screenshot({
-      fullPage,
-      path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.${extension}`,
-    });
-    await browser.close();
+    //await page.screenshot({
+    //  fullPage,
+    //  path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.${extension}`,
+    //});
+    //await browser.close();
 
     core.exportVariable("TIMESTAMP", timestamp);
   } catch (error) {
