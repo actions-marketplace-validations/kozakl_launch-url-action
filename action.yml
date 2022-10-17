@@ -1,5 +1,5 @@
 name: "Launch URL Action"
-description: ""
+description: "Launch URL in Github Action"
 author: "benjamin@lannonbr.com"
 branding:
   icon: 'camera'
