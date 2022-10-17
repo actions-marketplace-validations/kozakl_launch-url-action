@@ -55,7 +55,7 @@ function getChromePath() {
       defaultViewport: { width, height },
     });
     const page = await browser.newPage();
-    await page.setRequestInterception(true);
+    /*await page.setRequestInterception(true);
     page.on('request', (request) => {
         const url = request.url();
         const shouldAbort = abortRequestsMatching.some((urlPart) => url.includes(urlPart));
@@ -73,14 +73,16 @@ function getChromePath() {
     await page.mainFrame().waitForFunction(
       `window.innerWidth === ${ width } && window.innerHeight === ${ height }`
     );
-    await page.waitFor(waitFor);
+    await page.waitFor(waitFor);*/
     //await page.screenshot({
     //  fullPage,
     //  path: `${process.env.GITHUB_WORKSPACE}/screenshots/${screenshotName}.${extension}`,
     //});
-    //await browser.close();
+    
+    await page.goto(url);
+    browser.close();
 
-    core.exportVariable("TIMESTAMP", timestamp);
+    //core.exportVariable("TIMESTAMP", timestamp);
   } catch (error) {
     core.setFailed(`Failed to run action. ${error}`);
     process.exit(1);
